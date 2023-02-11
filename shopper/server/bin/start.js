@@ -5,9 +5,35 @@ const mongoose = require("mongoose");
 const config = require("../config");
 const App = require("../app");
 
+const Redis  = require('ioredis');
+
+
+
 async function connectToMongoose() {
   return mongoose.connect(config.mongodb.url, {});
 }
+
+function connectToRedis(){
+
+  const redis = new Redis (config.redis.port);
+
+  redis.on('connect' , ()=>{
+    console.info("Successfully connected to redis");
+  });
+  redis.on('error' , err =>{
+
+    console.error(err);
+    process.exit(1);
+  
+  });
+
+  return redis;
+}
+
+const redis = connectToRedis();
+config.redis.client = redis;
+
+
 
 /* Logic to start the application */
 const app = App(config);

@@ -4,5 +4,9 @@ module.exports = {
   applicationName: pkg.name,
   mongodb:{
     url:'mongodb://localhost:37017/shopper'
+  },
+  redis:{
+    port:7369,
+    client:null
   }
 };
