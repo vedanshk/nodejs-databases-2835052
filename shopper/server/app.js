@@ -5,8 +5,7 @@ const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const routeHandler = require('./routes');
 const BasketService = require('./services/BasketService');
-const item = require('./routes/admin/item');
-const UserService = requrie('./services/UserService');
+const UserService = require('./services/UserService');
 
 module.exports = (config) => {
   const app = express();
