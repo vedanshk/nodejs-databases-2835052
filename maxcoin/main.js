@@ -1,6 +1,6 @@
 const MongoBackend = require("./services/backend/MongoBackend");
 const RedisBackend = require("./services/backend/RedisBackend");
-const RedisBackend = require("./services/backend/RedisBackend")
+
 
 
 async function runMongo() {
